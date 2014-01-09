@@ -1,4 +1,5 @@
 /// <reference path="Scripts/typings/jquery/jquery.d.ts" />
+
 var AdditionProblem = (function () {
     function AdditionProblem(element) {
         var _this = this;

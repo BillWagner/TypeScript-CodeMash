@@ -1,5 +1,9 @@
 /// <reference path="Scripts/typings/jquery/jquery.d.ts" />
 
+interface JQueryStatic {
+    tmpl(tmplate: string, data: any): JQuery;
+}
+
 class AdditionProblem {
 
     correctAnswer: number;
