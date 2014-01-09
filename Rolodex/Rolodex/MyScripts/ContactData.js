@@ -54,6 +54,7 @@ var Rolodex;
         };
         return ContactDataServer;
     })();
+    Rolodex.ContactDataServer = ContactDataServer;
 })(Rolodex || (Rolodex = {}));
 
 contactsApp.factory('contactsData', function () {

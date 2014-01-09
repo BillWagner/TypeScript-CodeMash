@@ -3,7 +3,7 @@
 var contactsApp: ng.IModule;
 
 module Rolodex {
-    class ContactDataServer {
+    export class ContactDataServer {
         contacts: IContact[] = [
             {
                 first: "Tom",
