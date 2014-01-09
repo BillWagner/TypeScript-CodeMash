@@ -1,3 +1,5 @@
+/// <reference path="Scripts/typings/jquery/jquery.d.ts" />
+
 class AdditionProblem {
     element: HTMLElement;
     span: HTMLElement;
