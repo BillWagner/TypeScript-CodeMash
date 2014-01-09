@@ -1,6 +1,6 @@
 ﻿module Rolodex {
-    contactsApp.factory('contactData', function () {
-        var contacts = [
+    class ContactDataServer {
+        contacts: IContact[] = [
             {
                 first: "Tom",
                 last: "Riddle",
@@ -10,7 +10,8 @@
                 zipCode: 54565,
                 cellPhone: 6543654321,
                 homePhone: 4532332133,
-                workPhone: 6663420666
+                workPhone: 6663420666,
+                showDetails: true
             },
             {
                 first: "Antonin",
@@ -21,7 +22,8 @@
                 zipCode: 98767,
                 cellPhone: 4443332222,
                 homePhone: 5556667777,
-                workPhone: 9897876765
+                workPhone: 9897876765,
+                showDetails: true
             },
             {
                 first: "Evan",
@@ -32,18 +34,18 @@
                 zipCode: 23432,
                 cellPhone: 1232343456,
                 homePhone: 4432215565,
-                workPhone: 3454321234
+                workPhone: 3454321234,
+                showDetails: true
             }
         ];
 
-        return {
-            getContacts: function () {
-                return contacts;
-            },
-            addContact: function(contact){
-                contacts.push(contact);
-                return contacts;
-            }
-        };
-    })
+        getContacts() {
+            return this.contacts;
+        }
+    
+        addContact(contact) {
+            this.contacts.push(contact);
+            return this.contacts;
+        }
+    }
 }
