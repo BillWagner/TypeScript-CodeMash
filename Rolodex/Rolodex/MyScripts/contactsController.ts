@@ -4,7 +4,7 @@
 var contactsApp: ng.IModule;
 
 contactsApp.controller('ContactsController',
-    function ContactsController($scope, contactData) {
+    function ContactsController($scope : ng.IScope, contactData) {
         $scope.sortOrder = 'last';
         $scope.hideMessage = "Hide Details";
         $scope.showMessage = "Show Details";
