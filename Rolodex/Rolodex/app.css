@@ -1,0 +1,10 @@
+﻿.contactName{
+  font-weight: bold;
+  color: #114477;
+  font-size: 18px;
+}
+
+input.ng-invalid.ng-dirty {
+  background-color: pink;
+}
+

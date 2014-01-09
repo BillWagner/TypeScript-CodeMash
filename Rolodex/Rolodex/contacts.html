@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="contactsApp">
+<head>
+    <title>Contacts</title>
+    <link rel="stylesheet" href="Content/bootstrap.css" />
+    <link rel="stylesheet" href="app.css" />
+</head>
+<body>
+    <div ng-controller="ContactsController">
+        <h1>Contacts</h1>
+        Order by:
+        <select ng-model="sortOrder">
+            <option value="last" selected>last (a-z)</option>
+            <option value="-last" >last (z-a)</option>
+            <option value="first" >first</option>
+            <option value="zipCode" >zip code</option>
+        </select>
+        <ul class="contactsList">
+            <li class="contact" ng-repeat="contact in contacts | orderBy:sortOrder">
+                <div class="contactInfo">
+                        <span class="contactName">{{(contact.first + " " + contact.last)}}</span>
+                        <br />
+                        <div class="contactDetails" ng-hide="contact.showDetails">
+                            <span class="location">
+                                {{contact.address}}<br />
+                                {{contact.city}}, {{contact.state}} <br />
+                                {{contact.zipCode}}
+                            </span>
+                            <ul class="phoneNumbers">
+                                <li><span class="phone">Home: {{contact.homePhone}}</span></li>
+                                <li><span class="phone">Work: {{contact.workPhone}}</span></li>
+                                <li><span class="phone">Cell: {{contact.cellPhone}}</span></li>
+                            </ul>
+                        </div>
+                </div>
+                <button ng-click="toggleShowDetails(contact)">
+                    <span ng-show="contact.showDetails">Show Details</span>
+                    <span ng-hide="contact.showDetails">Hide Details</span>
+                </button>
+            </li>
+        </ul>
+    </div>
+    <script src="Scripts/angular.js"></script>
+    <script src="MyScripts/App.js"></script>
+    <script src="MyScripts/contactsController.js"></script>
+    <script src="MyScripts/ContactData.js"></script>
+    <script src="MyScripts/NewContactController.js"></script>
+</body>
+</html>

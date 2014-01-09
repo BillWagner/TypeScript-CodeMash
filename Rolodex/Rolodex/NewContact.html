@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="contactsApp">
+<head>
+    <title>New Contact</title>
+    <link rel="stylesheet" href="Content/bootstrap.css" />
+    <link rel="stylesheet" href="app.css" />
+</head>
+<body>
+    <div ng-controller="NewContactController" style="padding-left: 20px;padding-right: 20px;">
+        <h1>New Contact</h1>
+        <hr />
+        <form name="newContactForm">
+            <fieldset>
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" ng-model="contact.first" required placeholder="First Name">
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" ng-model="contact.last" required placeholder="Last Name">
+                <label for="address">E-Mail:</label>
+                <input type="email" id="email" ng-model="contact.email" required >
+                <label for="address">Address:</label>
+                <input type="text" id="address" ng-model="contact.address" >
+                <label for="city">City:</label>
+                <input type="text" id="city" ng-model="contact.city" class="input-small" />
+                <label for="state">State:</label>
+                <input type="text" id="state" ng-model="contact.state" class="input-small" />
+                <label for="zipCode">ZipCode:</label>
+                <input type="text" id="zipCode" ng-model="contact.zipCode" ng-pattern="/\d\d\d\d\d/"class="input-small" />
+                <label for="home">Home:</label>
+                <input type="text" id="home" ng-model="contact.home" class="input-small" />
+                <label for="work">Work:</label>
+                <input type="text" id="work" ng-model="contact.work" class="input-small" />
+                <label for="cell">Cell:</label>
+                <input type="text" id="cell" ng-model="contact.cell" class="input-small" />
+            </fieldset>
+            <br />
+            <br />
+            <button type="submit" ng-disabled="newContactForm.$invalid" class="btn btn-primary" ng-click="saveContact(contact,newContactForm)">Save</button>
+        </form>
+
+    </div>
+    <script src="Scripts/angular.js"></script>
+    <script src="MyScripts/app.js"></script>
+    <script src="MyScripts/ContactsController.js"></script>
+    <script src="MyScripts/NewContactController.js"></script>
+    <script src="MyScripts/ContactData.js"></script>
+</body>
+</html>
