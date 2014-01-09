@@ -5,7 +5,7 @@ var contactsApp: ng.IModule;
 
 module Rolodex {
 
-    interface IContact {
+    export interface IContact {
         first: string;
         last: string;
         address: string;
@@ -19,7 +19,7 @@ module Rolodex {
     }
 
 
-    interface IContactsScope extends ng.IScope {
+    export interface IContactsScope extends ng.IScope {
         sortOrder: string;
         hideMessage: string;
         showMessage: string;
@@ -27,8 +27,8 @@ module Rolodex {
         toggleShowDetails: (contact: IContact) => boolean;
     }
 
-    contactsApp.controller('ContactsController',
-        function ContactsController($scope: IContactsScope, contactData) {
+    export class ContactsController {
+        constructor($scope: IContactsScope, contactData: any) {
             $scope.sortOrder = 'last';
             $scope.hideMessage = "Hide Details";
             $scope.showMessage = "Show Details";
@@ -37,5 +37,8 @@ module Rolodex {
                 contact.showDetails = !contact.showDetails;
                 return contact.showDetails;
             }
-    });
+        }
+    }
 }
+
+contactsApp.controller('ContactsController', Rolodex.ContactsController);
