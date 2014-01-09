@@ -8,6 +8,7 @@ contactsApp.controller('ContactsController', function ContactsController($scope,
     $scope.contacts = contactData.getContacts();
     $scope.toggleShowDetails = function (contact) {
         contact.showDetails = !contact.showDetails;
+        return contact.showDetails;
     };
 });
 //# sourceMappingURL=contactsController.js.map
