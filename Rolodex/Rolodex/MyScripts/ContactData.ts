@@ -1,4 +1,5 @@
 ﻿'use strict';
+
 contactsApp.factory('contactData', function () {
     var contacts = [
         {
@@ -40,10 +41,9 @@ contactsApp.factory('contactData', function () {
         getContacts: function () {
             return contacts;
         },
-        addContact: function (contact) {
+        addContact: function(contact){
             contacts.push(contact);
             return contacts;
         }
     };
-});
-//# sourceMappingURL=ContactData.js.map
+})
