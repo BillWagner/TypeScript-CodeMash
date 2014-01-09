@@ -2,13 +2,13 @@
 var AdditionProblem = (function () {
     function AdditionProblem(element) {
         var _this = this;
-        var left = Math.floor(Math.random() * 25);
-        var right = Math.floor(Math.random() * 25);
+        this.left = Math.floor(Math.random() * 25);
+        this.right = Math.floor(Math.random() * 25);
         var tmplate = "${left} + ${right} = ";
 
         var renderedProblem = $.tmpl(tmplate, this);
 
-        this.correctAnswer = left + right;
+        this.correctAnswer = this.left + this.right;
 
         var paragraph = document.createElement('p');
         renderedProblem.appendTo(paragraph);
