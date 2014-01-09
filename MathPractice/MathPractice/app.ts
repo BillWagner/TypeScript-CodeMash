@@ -1,4 +1,4 @@
-class Greeter {
+class AdditionProblem {
     element: HTMLElement;
     span: HTMLElement;
     timerToken: number;
@@ -23,6 +23,6 @@ class Greeter {
 
 window.onload = () => {
     var el = document.getElementById('content');
-    var greeter = new Greeter(el);
+    var greeter = new AdditionProblem(el);
     greeter.start();
 };
