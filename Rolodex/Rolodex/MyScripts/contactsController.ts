@@ -1,5 +1,8 @@
 ﻿/// reference path="../Scripts/typings/angularjs/angular.d.ts" />
 
+
+var contactsApp: any;
+
 contactsApp.controller('ContactsController',
     function ContactsController($scope, contactData) {
         $scope.sortOrder = 'last';

@@ -1,4 +1,6 @@
 ﻿/// reference path="../Scripts/typings/angularjs/angular.d.ts" />
+var contactsApp;
+
 contactsApp.controller('ContactsController', function ContactsController($scope, contactData) {
     $scope.sortOrder = 'last';
     $scope.hideMessage = "Hide Details";
