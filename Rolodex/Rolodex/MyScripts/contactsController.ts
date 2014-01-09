@@ -28,7 +28,7 @@ module Rolodex {
     }
 
     export class ContactsController {
-        constructor($scope: IContactsScope, contactData: any) {
+        constructor($scope: IContactsScope, contactData: ContactDataServer) {
             $scope.sortOrder = 'last';
             $scope.hideMessage = "Hide Details";
             $scope.showMessage = "Show Details";
