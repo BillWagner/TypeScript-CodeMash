@@ -1,7 +1,7 @@
 ﻿/// reference path="../Scripts/typings/angularjs/angular.d.ts" />
 
 
-var contactsApp: any;
+var contactsApp: ng.IModule;
 
 contactsApp.controller('ContactsController',
     function ContactsController($scope, contactData) {
