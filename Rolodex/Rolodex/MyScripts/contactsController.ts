@@ -3,12 +3,26 @@
 
 var contactsApp: ng.IModule;
 
+interface IContact {
+    first: string;
+    last: string;
+    address: string;
+    city: string;
+    state: string;
+    zipCode: number;
+    cellPhone: number;
+    homePhone: number;
+    workPhone: number;
+    showDetails: boolean
+}
+
+
 interface IContactsScope extends ng.IScope {
     sortOrder: string;
     hideMessage: string;
     showMessage: string;
-    contacts: any;
-    toggleShowDetails: (contact: any) => boolean;
+    contacts: IContact[];
+    toggleShowDetails: (contact: IContact) => boolean;
 }
 
 contactsApp.controller('ContactsController',
