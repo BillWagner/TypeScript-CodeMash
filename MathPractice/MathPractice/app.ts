@@ -1,30 +1,19 @@
 /// <reference path="Scripts/typings/jquery/jquery.d.ts" />
 
 class AdditionProblem {
-    element: HTMLElement;
-    span: HTMLElement;
-    timerToken: number;
 
-    constructor(element: HTMLElement) {
-        this.element = element;
-        this.element.innerHTML += "The time is: ";
-        this.span = document.createElement('span');
-        this.element.appendChild(this.span);
-        this.span.innerText = new Date().toUTCString();
-    }
-
-    start() {
-        this.timerToken = setInterval(() => this.span.innerHTML = new Date().toUTCString(), 500);
-    }
-
-    stop() {
-        clearTimeout(this.timerToken);
+    constructor(element: JQuery) {
     }
 
 }
 
-window.onload = () => {
-    var el = document.getElementById('content');
-    var greeter = new AdditionProblem(el);
-    greeter.start();
-};
+$(document).ready(() => {
+    var el = $('#content');
+    var button = $("<input></input>")
+        .val("Create New Problem")
+        .attr("type", "button")
+        .bind("click", function () {
+            var problem = new AdditionProblem(el);
+        });
+    el.append(button);
+});
