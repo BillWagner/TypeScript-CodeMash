@@ -1,4 +1,8 @@
-﻿module Rolodex {
+﻿/// reference path="../Scripts/typings/angularjs/angular.d.ts" />
+
+var contactsApp: ng.IModule;
+
+module Rolodex {
     class ContactDataServer {
         contacts: IContact[] = [
             {
@@ -43,9 +47,11 @@
             return this.contacts;
         }
     
-        addContact(contact) {
+        addContact(contact: IContact) {
             this.contacts.push(contact);
             return this.contacts;
         }
     }
 }
+
+contactsApp.factory('contactsData', () => new Rolodex.ContactDataServer());

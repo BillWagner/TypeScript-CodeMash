@@ -1,4 +1,7 @@
-﻿var Rolodex;
+﻿/// reference path="../Scripts/typings/angularjs/angular.d.ts" />
+var contactsApp;
+
+var Rolodex;
 (function (Rolodex) {
     var ContactDataServer = (function () {
         function ContactDataServer() {
@@ -52,4 +55,8 @@
         return ContactDataServer;
     })();
 })(Rolodex || (Rolodex = {}));
+
+contactsApp.factory('contactsData', function () {
+    return new Rolodex.ContactDataServer();
+});
 //# sourceMappingURL=ContactData.js.map
