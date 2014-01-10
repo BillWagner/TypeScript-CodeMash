@@ -6,7 +6,7 @@ interface JQueryStatic {
 
 module MathPractice {
 
-    export class AdditionProblem {
+    export class AdditionProblem extends MathProblem {
 
         correctAnswer: number;
         txt: HTMLInputElement;
@@ -15,6 +15,7 @@ module MathPractice {
         right: number;
 
         constructor(element: JQuery) {
+            super();
             this.left = Math.floor(Math.random() * 25);
             this.right = Math.floor(Math.random() * 25);
             var tmplate = "${left} + ${right} = ";

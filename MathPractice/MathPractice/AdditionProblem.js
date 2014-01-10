@@ -1,10 +1,18 @@
 /// <reference path="Scripts/typings/jquery/jquery.d.ts" />
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
 
 var MathPractice;
 (function (MathPractice) {
-    var AdditionProblem = (function () {
+    var AdditionProblem = (function (_super) {
+        __extends(AdditionProblem, _super);
         function AdditionProblem(element) {
             var _this = this;
+            _super.call(this);
             this.left = Math.floor(Math.random() * 25);
             this.right = Math.floor(Math.random() * 25);
             var tmplate = "${left} + ${right} = ";
@@ -41,7 +49,7 @@ var MathPractice;
                 this.msg.innerHTML = "Please try again";
         };
         return AdditionProblem;
-    })();
+    })(MathPractice.MathProblem);
     MathPractice.AdditionProblem = AdditionProblem;
 })(MathPractice || (MathPractice = {}));
 //# sourceMappingURL=AdditionProblem.js.map
