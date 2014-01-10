@@ -6,10 +6,6 @@ interface JQueryStatic {
 
 module MathPractice {
     export class AdditionProblem extends MathProblem {
-
-        left: number;
-        right: number;
-
         constructor(element: JQuery) {
             super();
             this.left = Math.floor(Math.random() * 25);
