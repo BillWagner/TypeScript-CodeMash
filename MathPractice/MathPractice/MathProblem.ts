@@ -2,6 +2,10 @@
 
 module MathPractice {
     export class MathProblem {
+
+        left: number;
+        right: number;
+
         correctAnswer: number;
         txt: HTMLInputElement;
         msg: HTMLSpanElement;
