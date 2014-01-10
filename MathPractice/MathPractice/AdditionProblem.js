@@ -11,17 +11,20 @@ var MathPractice;
     var AdditionProblem = (function (_super) {
         __extends(AdditionProblem, _super);
         function AdditionProblem(element) {
-            var _this = this;
             _super.call(this);
             this.left = Math.floor(Math.random() * 25);
             this.right = Math.floor(Math.random() * 25);
             var tmplate = "${left} + ${right} = ";
 
-            var renderedProblem = $.tmpl(tmplate, this);
-
             this.correctAnswer = this.left + this.right;
 
+            this.buildHtml(element, tmplate);
+        }
+        AdditionProblem.prototype.buildHtml = function (element, tmplate) {
+            var _this = this;
+            var renderedProblem = $.tmpl(tmplate, this);
             var paragraph = document.createElement('p');
+
             renderedProblem.appendTo(paragraph);
 
             // not using JQuery here because the rendered problem
@@ -41,7 +44,8 @@ var MathPractice;
             paragraph.appendChild(this.msg);
 
             element.append(paragraph);
-        }
+        };
+
         AdditionProblem.prototype.checkAnswer = function () {
             if (parseInt(this.txt.value) == this.correctAnswer)
                 this.msg.innerHTML = "You are correct";

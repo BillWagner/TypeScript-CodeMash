@@ -1,3 +1,5 @@
+/// <reference path="scripts/typings/jquery/jquery.d.ts" />
+
 $(document).ready(() => {
     var el = $('#content');
     var button = $("<input></input>")

@@ -5,7 +5,6 @@ interface JQueryStatic {
 }
 
 module MathPractice {
-
     export class AdditionProblem extends MathProblem {
 
         correctAnswer: number;
@@ -20,11 +19,16 @@ module MathPractice {
             this.right = Math.floor(Math.random() * 25);
             var tmplate = "${left} + ${right} = ";
 
-            var renderedProblem = $.tmpl(tmplate, this);
 
             this.correctAnswer = this.left + this.right;
 
+            this.buildHtml(element, tmplate);
+        }
+
+        buildHtml(element: JQuery, tmplate: string) {
+            var renderedProblem = $.tmpl(tmplate, this);
             var paragraph = document.createElement('p');
+
             renderedProblem.appendTo(paragraph);
 
             // not using JQuery here because the rendered problem 
