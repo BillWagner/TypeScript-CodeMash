@@ -4,51 +4,54 @@ interface JQueryStatic {
     tmpl(tmplate: string, data: any): JQuery;
 }
 
-class AdditionProblem {
+module MathPractice {
 
-    correctAnswer: number;
-    txt: HTMLInputElement;
-    msg: HTMLSpanElement;
-    left: number;
-    right: number;
+    export class AdditionProblem {
 
-    constructor(element: JQuery) {
-        this.left = Math.floor(Math.random() * 25);
-        this.right = Math.floor(Math.random() * 25);
-        var tmplate = "${left} + ${right} = ";
+        correctAnswer: number;
+        txt: HTMLInputElement;
+        msg: HTMLSpanElement;
+        left: number;
+        right: number;
 
-        var renderedProblem = $.tmpl(tmplate, this);
+        constructor(element: JQuery) {
+            this.left = Math.floor(Math.random() * 25);
+            this.right = Math.floor(Math.random() * 25);
+            var tmplate = "${left} + ${right} = ";
 
-        this.correctAnswer = this.left + this.right;
+            var renderedProblem = $.tmpl(tmplate, this);
 
-        var paragraph = document.createElement('p');
-        renderedProblem.appendTo(paragraph);
+            this.correctAnswer = this.left + this.right;
 
-        // not using JQuery here because the rendered problem 
-        // is not in the DOM yet.
-        this.txt = document.createElement('input');
-        this.txt.type = 'text';
-        paragraph.appendChild(this.txt);
+            var paragraph = document.createElement('p');
+            renderedProblem.appendTo(paragraph);
 
-        var button = document.createElement('input');
-        this.msg = document.createElement('span');
-        button.type = 'button';
-        button.value = "Check Answer";
-        button.onclick = () => this.checkAnswer();
-        paragraph.appendChild(button);
-        paragraph.appendChild(this.msg);
+            // not using JQuery here because the rendered problem 
+            // is not in the DOM yet.
+            this.txt = document.createElement('input');
+            this.txt.type = 'text';
+            paragraph.appendChild(this.txt);
 
-        element.append(paragraph);
+            var button = document.createElement('input');
+            this.msg = document.createElement('span');
+            button.type = 'button';
+            button.value = "Check Answer";
+            button.onclick = () => this.checkAnswer();
+            paragraph.appendChild(button);
+            paragraph.appendChild(this.msg);
+
+            element.append(paragraph);
+        }
+
+        checkAnswer() {
+            if (parseInt(this.txt.value) == this.correctAnswer)
+                this.msg.innerHTML = "You are correct";
+            else
+                this.msg.innerHTML = "Please try again";
+        }
+
+
     }
-
-    checkAnswer() {
-        if (parseInt(this.txt.value) == this.correctAnswer)
-            this.msg.innerHTML = "You are correct";
-        else
-            this.msg.innerHTML = "Please try again";
-    }
-
-
 }
 
 $(document).ready(() => {
@@ -57,7 +60,7 @@ $(document).ready(() => {
         .val("Create New Problem")
         .attr("type", "button")
         .bind("click", function () {
-            var problem = new AdditionProblem(el);
+            var problem = new MathPractice.AdditionProblem(el);
         });
     el.append(button);
 });
