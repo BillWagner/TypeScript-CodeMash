@@ -1,3 +1,4 @@
+/// <reference path="scripts/typings/jquery/jquery.d.ts" />
 $(document).ready(function () {
     var el = $('#content');
     var button = $("<input></input>").val("Create New Problem").attr("type", "button").bind("click", function () {
